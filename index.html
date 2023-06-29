@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
-    <title>CITY Real Estate</title>  
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">   
 
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CITY Real Estate</title>  
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <link rel="stylesheet" href="Bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/colors.css">
-    <link rel="stylesheet" href="css/versions.css">
-    <link rel="stylesheet" href="css/responsive.css">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/colors.css">
+<link rel="stylesheet" href="css/versions.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/custom.css">
+
+<script src="js/modernizer.js"></script>
 
 
+    <style>
+        .dark-mode {
+        background-color: green;
+        color: #ffffff;
+       }
+
+    .dark-mode .navbar-default {
+    background-color: green;
+     }
+
+.dark-mode .navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+    </style>
+    
 </head>
-<body class="realestate_version">
-
+<body class="realestate_version dark mode">
+   
     <div id="preloader">
         <span class="loader"><span class="loader-inner"></span></span>
     </div>
 
     <header class="header header_style_01">
+       
         <nav class="megamenu navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
+                  
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -40,6 +60,7 @@
                     <a class="navbar-brand" href="index.html"><img src="images/logos/logo.png" alt="image"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
+                    
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="active" href="index.html">Home</a></li>
                         <li><a href="about.html">About us </a></li>
@@ -52,10 +73,7 @@
                         <li class="social-links"><a href="#"><i class="fa fa-linkedin global-radius"></i></a></li>
 						<li class="search-option">
 							<button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
-							<form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="searchDropdown">
-								<input type="text" placeholder="Search....">
-								<button class="p-color-bg"><i class="fa fa-search" aria-hidden="true"></i></button>
-							</form>
+							
 					   </li> 
                     </ul>
                 </div>
@@ -82,17 +100,16 @@
     <div class="parallax first-section">
         <div class="container">
             <div class="row">
-                
 				<div class="col-md-6 col-sm-12">
                     <div class="big-tagline clearfix">
                         <h2>Sell Your Property with CITY Real Estate</h2>
                         <p class="lead">With CITY Real Estate responsive landing page template, you can promote your all property & real estate projects. </p>
-                        <a data-scroll href="./gallery.html" class="btn btn-light btn-radius grd1 btn-brd">View Gallery</a>
+                        <a data-scroll href="#gallery" class="btn btn-light btn-radius grd1 btn-brd">View Gallery</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
 	
 	<div class="about-box">
 		<div class="container">
@@ -135,7 +152,7 @@
 				<div class="col-md-6">
                     <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
                         <img src="uploads/about_bg.jpg" alt="" class="img-responsive">                        
-                    </div>
+                    </div><!-- end media -->
                 </div>
 				<div class="col-md-6">
 					<div class="message-box right-ab">
@@ -339,6 +356,8 @@
         </div>
     </footer>
 
+
+
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
     <script src="js/all.js"></script>
@@ -347,6 +366,38 @@
     <script src="js/hoverdir.js"></script>    
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
     <script src="js/map.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.1.3/pixi.min.js"></script>
+
+
+
+<script>
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+        const body = document.querySelector('body');
+        body.classList.toggle('dark-mode');
+    }
+
+    // Add a button to toggle dark mode
+    const toggleButton = document.createElement('button');
+    toggleButton.textContent = 'Toggle Dark Mode';
+    toggleButton.addEventListener('click', toggleDarkMode);
+    document.body.appendChild(toggleButton);
+
+    // PixiJS code goes here
+    // Initialize PixiJS and create your canvas and graphics
+
+    // Example code to create a PIXI.Application
+    const app = new PIXI.Application({
+        width: 800,
+        height: 600,
+        backgroundColor: 0x000000, // Set background color to black for dark mode
+    });
+
+    // Add your PixiJS code to create sprites, graphics, etc.
+
+    // Append the PixiJS canvas to the HTML body
+    document.body.appendChild(app.view);
+</script>
 
 </body>
 </html>
