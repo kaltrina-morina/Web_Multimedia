@@ -23,7 +23,7 @@
 <script src="js/modernizer.js"></script>
 
 
-    <style>
+     <style>
         .dark-mode {
         background-color: green;
         color: #ffffff;
@@ -33,11 +33,10 @@
     background-color: green;
      }
 
-.dark-mode .navbar-default .navbar-nav > li > a {
+  .dark-mode .navbar-default .navbar-nav > li > a {
     color: #ffffff;
-}
+   }
     </style>
-    
 </head>
 <body class="realestate_version dark mode">
    
@@ -60,7 +59,7 @@
                     <a class="navbar-brand" href="index.html"><img src="images/logos/logo.png" alt="image"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    
+                    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="active" href="index.html">Home</a></li>
                         <li><a href="about.html">About us </a></li>
@@ -107,9 +106,9 @@
                         <a data-scroll href="#gallery" class="btn btn-light btn-radius grd1 btn-brd">View Gallery</a>
                     </div>
                 </div>
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
+            </div>
+        </div>
+    </div>
 	
 	<div class="about-box">
 		<div class="container">
@@ -192,7 +191,7 @@
 				<div class="col-md-3">
                     <div class="post-media wow fadeIn">
                         <img src="uploads/agent.jpg" alt="" class="img-responsive">
-                        <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                        <a href="https://www.youtube.com/watch?v=z5VfekpUpms" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -369,35 +368,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.1.3/pixi.min.js"></script>
 
 
-
-<script>
-    // Function to toggle dark mode
-    function toggleDarkMode() {
-        const body = document.querySelector('body');
-        body.classList.toggle('dark-mode');
-    }
-
-    // Add a button to toggle dark mode
-    const toggleButton = document.createElement('button');
-    toggleButton.textContent = 'Toggle Dark Mode';
-    toggleButton.addEventListener('click', toggleDarkMode);
-    document.body.appendChild(toggleButton);
-
-    // PixiJS code goes here
-    // Initialize PixiJS and create your canvas and graphics
-
-    // Example code to create a PIXI.Application
-    const app = new PIXI.Application({
-        width: 800,
-        height: 600,
-        backgroundColor: 0x000000, // Set background color to black for dark mode
-    });
-
-    // Add your PixiJS code to create sprites, graphics, etc.
-
-    // Append the PixiJS canvas to the HTML body
-    document.body.appendChild(app.view);
-</script>
-
+    <script src="https://pixijs.download/release/pixi.min.js"></script>
+    <script>
+        // Toggle dark mode
+        function toggleDarkMode() {
+          const body = document.body;
+          body.classList.toggle('dark-mode');
+        }
+    
+        // Check if dark mode is active
+        function isDarkMode() {
+          const body = document.body;
+          return body.classList.contains('dark-mode');
+        }
+    
+        // Create a PixiJS application
+        const app = new PIXI.Application({
+          width: 800,
+          height: 600,
+          backgroundColor: isDarkMode() ? 0x333333 : 0xFFFFFF,
+        });
+    
+        // Adjust rendering based on active mode
+        app.ticker.add(() => {
+          if (isDarkMode()) {
+            // Apply dark mode rendering adjustments
+            // For example, update colors, shaders, or textures
+          } else {
+            // Apply light mode rendering adjustments
+            // For example, revert colors, shaders, or textures
+          }
+        });
+    
+        // Add the PixiJS application to the document
+        document.body.appendChild(app.view);
+      </script>
+    
 </body>
 </html>
